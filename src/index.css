@@ -273,3 +273,11 @@ a {
   font-weight: bold;
   padding-right: 15px;
 }
+
+
+
+.table {
+  width:95%;
+  display:block;
+  overflowX:auto;
+  }

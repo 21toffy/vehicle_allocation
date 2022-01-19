@@ -259,19 +259,20 @@ console.log(refresh)
 
                 }
             </Modal>
+                <div style={{display: 'table', tableLayout:'fixed', width:'100%'}}>
 
             <MaterialTable
                 title={props.name}
                 columns={[
-                    { title: 'Vehicle name', field: 'name' },
-                    { title: 'Fuel consumption', field: 'fuel_consumption' },
-                    { title: 'Condition', field: 'condition' },
-                    { title: 'In Use', field: 'in_use' },
-                    { title: 'Model', field: 'model' },
-                    { title: 'Plate number', field: 'plate_number' },
+                    { title: 'Vehicle name', flex: 1,field: 'name' },
+                    { title: 'Fuel consumption', flex: 1,field: 'fuel_consumption' },
+                    { title: 'Condition', flex: 1,field: 'condition' },
+                    { title: 'In Use', flex: 1,field: 'in_use' },
+                    { title: 'Model', flex: 1,field: 'model' },
+                    { title: 'Plate number', flex: 1,field: 'plate_number' },
                     {
                         title: 'Under Maintenane',
-                        field: 'under_maintenance',
+                        flex: 1,field: 'under_maintenance',
                         // lookup: { 34: 'İstanbul', 63: 'Şanlurfa' },
                     },
                 ]}
@@ -283,7 +284,7 @@ console.log(refresh)
                             setbusState(rowData);
                             setIsModalVisible(true);
                             console.log(rowData);
-
+                            
                         }
                     }
                 ]}
@@ -291,7 +292,7 @@ console.log(refresh)
                 options={{
                     filtering: true
                 }}
-
+                
                 components={{
                     Action: props => (
                         <>
@@ -300,9 +301,10 @@ console.log(refresh)
                                 onClick={(event) => props.action.onClick(event, props.data)}>edit</button>
                         </>
                     ),
-
+                    
                 }}
             />
+                </div>
         </>
     )
 }

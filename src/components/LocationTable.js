@@ -12,6 +12,8 @@ const LocationTable = props => {
 
     console.log(locations)
     return (
+      <div style={{display: 'table', tableLayout:'fixed', width:'100%'}}>
+
         <MaterialTable
         title="All Locations"
         columns={[
@@ -42,6 +44,7 @@ const LocationTable = props => {
 
         
       />
+      </div>
     )
 }
 
