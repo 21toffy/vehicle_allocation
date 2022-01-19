@@ -252,7 +252,7 @@ const handleCancelSuccess =()=>{
 
                     <select className="form-select" aria-label="Default select example" name="location"
                         onChange={selectChange} required>
-                        <option value="">Select a Network</option>
+                        <option value="">Select a destination</option>
                         {locations ?
                             locations.map(st => (
                                 <option key={st.id} value={st.destination}>{st.destination}</option>
