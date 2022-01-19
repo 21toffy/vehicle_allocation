@@ -32,22 +32,17 @@ const Sider = props => {
                     <i className="fas fa-times" />
                     </div>
                     <div className="profile_info">
-                    <div className="profile_img">
-                        <img src={profile_image} alt="profile_img" />
-                    </div>
-                    <div className="profile_data">
-                        <p className="name">(tofunmi okedeji)</p>
-                        {/* <span><i className="fas fa-map-marker-alt" /> Texas, USA</span> */}
-                    </div>
+                    
+                    
                     </div>
                     <ul className="siderbar_menu">
                     <li onClick={()=>reveal("home")} className={active=="home"? "home" : ""}><Link to="">
-                        <div className="icon"><i className="fas fa-heart" /></div>
+                        <div className="icon"><i className="fas fa-home" /></div>
                         <div className="title">Home</div>
                         </Link> 
                     </li>  
                     <li onClick={()=>reveal("bus")} className={active=="bus"? "active" : ""}><Link >
-                        <div className="icon"><i className="fas fa-user" /></div>
+                        <div className="icon"><i className="fas fa-bus" /></div>
                         <div className="title">Bus Actions</div>
                         <div className="arrow"><i className="fas fa-chevron-down" /></div>
                         </Link>
@@ -62,7 +57,7 @@ const Sider = props => {
                         </ul>
                     </li>  
                     <li onClick={()=>reveal("location")} className={active=="location"? "active" : ""}><a href="#">
-                        <div className="icon"><i className="fas fa-receipt" /></div>
+                        <div className="icon"><i className="fas fa-map" /></div>
                         <div className="title">Location Actions</div>
                         <div className="arrow"><i className="fas fa-chevron-down" /></div>
                         </a>
@@ -73,7 +68,7 @@ const Sider = props => {
                         </ul>
                     </li>  
                     <li onClick={()=>reveal("allocate")} className={active=="allocate"? "active" : ""}><a href="#">
-                        <div className="icon"><i className="fas fa-credit-card" /></div>
+                        <div className="icon"><i className="fas fa-check" /></div>
                         <div className="title">Allocation Actions</div>
                         <div className="arrow"><i className="fas fa-chevron-down" /></div>
                         </a>

@@ -14,7 +14,7 @@ const Login = () => {
     const [loginSuccess, setLoginSuccess] = useState();
     const [loginError, setLoginError] = useState();
     const [redirectOnLogin, setRedirectOnLogin] = useState(
-      false
+        false
     );
     const [loginLoading, setLoginLoading] = useState(false);
 
@@ -23,12 +23,12 @@ const Login = () => {
 
 
 
-    const submitCredentials = (e)  => {
+    const submitCredentials = (e) => {
         e.preventDefault()
         setLoginLoading(true)
-        const credentials= {
-            username:username,
-            password:password
+        const credentials = {
+            username: username,
+            password: password
         }
 
         axios({
@@ -37,91 +37,92 @@ const Login = () => {
             headers: {
                 "Content-Type": "application/json",
             },
-            data :credentials,
-          })
-          .then(function (result) {
+            data: credentials,
+        })
+            .then(function (result) {
 
-            if ((result.status = 200)) {
+                if ((result.status = 200)) {
+                    setLoginLoading(false)
+                    console.log(result.data)
+                    localStorage.setItem('access', result.data.access);
+                    setLoginError(null);
+
+                    setTimeout(() => {
+                        setRedirectOnLogin(true);
+                    }, 700);
+                }
+
+
+            })
+            .catch((error) => {
                 setLoginLoading(false)
-                console.log(result.data)
-                localStorage.setItem('access', result.data.access);
-                setLoginError(null);
+                setLoginError(false)
 
-                setTimeout(() => {
-                    setRedirectOnLogin(true);
-                  }, 700);              
-            }
-            
-    
-          })
-          .catch((error) => {
-            setLoginLoading(false)
-            setLoginError(false)
-  
-            setLoginError(error.response.data.detail)
-            console.log(error.response.data.detail)
-          console.log({...error});
-        });
+                setLoginError(error.response.data.detail)
+                console.log(error.response.data.detail)
+                console.log({ ...error });
+            });
 
 
     }
     const access = localStorage.getItem('access');
-    if(access){
+    if (access) {
 
-        return <Redirect to="/" /> 
+        return <Redirect to="/" />
     }
-    return<>
+    return <>
         {/* {redirectOnLogin && <Redirect to="/dashboard" />} */}
 
-<div className="trip-banner-area">
+        <div className="w-full">
 
 
-    <div className="container  justify-content-center">
-        <div className="row">
-            <div className="card mt-5 mx-auto p-5 col-sm-6 col-sm-offset-3">
-<h3 className='text-center py-2'>Login</h3>
-                {loginError ?
-                    <div className="alert alert-danger text-center" role="alert">
-                        {loginError}
-                    </div>
-                    :
-                    loginSuccess ?
+            <div className="container  justify-content-center">
+                <div className="row">
+                    <div className="card mt-5 mx-auto p-5 col-sm-6 col-sm-offset-3">
+                        <h3 className='text-center py-2'>Vehicle Allocation Management System </h3>
+                        <h4 className='text-center text-primary py-3'>Login</h4>
+                        {loginError ?
+                            <div className="alert alert-danger text-center" role="alert">
+                                {loginError}
+                            </div>
+                            :
+                            loginSuccess ?
 
-                        <div className="alert alert-success text-center" role="alert">
-                            Login successful
-                        </div>
-                        :
-                        null
+                                <div className="alert alert-success text-center" role="alert">
+                                    Login successful
+                                </div>
+                                :
+                                null
 
-                }
-                <form onSubmit={submitCredentials}>
-                    <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Email address</label>
-                        <input required type="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="exampleInputPassword1">Password</label>
-                        <input required type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" id="exampleInputPassword1" placeholder="Password" />
-                    </div>
-                    <div className="form-group text-center">
-                        {
-                            loginLoading ?
-                                <button type="submit" className="my-5 btn btn-warning text-center">
-                                    <div class="spinner-border text-black" role="status">
-                                        <span class="visually-hidden"></span>
-                                    </div>
-                                </button> :
-                                <button type="submit" className="my-5 btn btn-warning text-center">Login</button>
                         }
+                        <form onSubmit={submitCredentials}>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputEmail1">Username</label>
+                                <input required type="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputPassword1">Password</label>
+                                <input required type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                            </div>
+                            <div className="form-group text-center">
+                                {
+                                    loginLoading ?
+                                        <button type="submit" className="my-5 btn btn-warning text-center">
+                                            <div class="spinner-border text-black" role="status">
+                                                <span class="visually-hidden"></span>
+                                            </div>
+                                        </button> :
+                                        <button type="submit" className="my-5 btn btn-warning text-center">Login</button>
+                                }
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-    </div>
 
-</div>
-       </>
-    
+        </div>
+    </>
+
 };
 
 

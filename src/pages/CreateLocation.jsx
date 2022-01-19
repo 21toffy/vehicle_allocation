@@ -65,16 +65,19 @@ const CreateLocation = props => {
     }
 
     return (
-        <Body className="form-item">
-            <AuthComponent />
+        <Body>
+            <div>
+
             <h3>
-                Create locations
                 {success ? <div className="alert alert-success text-center" role="alert">{success}</div> : null}
                 {error ? <div className="alert alert-danger text-center" role="alert">{error}</div> : null}
+                Create locations
 
 
             </h3>
-            <form onSubmit={submitFormData} className="row g-3">
+            <AuthComponent />
+           <div>
+           <form onSubmit={submitFormData} className="row g-3">
                 <div className="mb-3">
                     <label htmlFor="destination" className="form-label">Location/Destination Name</label>
                     <input type="text" className="form-control" id="destination" aria-describedby="" name="destination" value={formData.destination}
@@ -91,6 +94,8 @@ const CreateLocation = props => {
                     <div className="spinner-border"></div>
                     : "Submit"}</button>
             </form>
+           </div>
+                        </div>
         </Body>
 
     )

@@ -16,7 +16,7 @@ const Navbar = props => {
 
         </div>
         <div className="logo">
-            <a href="#">Kaduna Transport</a>
+            <a href="/">Transport Allocation Management System</a>
         </div>
         </div>
 

@@ -33,8 +33,8 @@ const LocationTable = props => {
         components={{
         Action: props => (
            <>
-           <button className='bntn btn-primary radius-1 p-2 m-1 btn-sm' onClick={(event) => props.action.onClick(event, props.data)}>edit</button>
-            <button className='bntn btn-danger radius-1 p-2 m-1 btn-sm' onClick={(event) => props.action.onClick(event, props.data)}>edit</button>
+           {/* <button className='bntn btn-primary radius-1 p-2 m-1 btn-sm' onClick={(event) => props.action.onClick(event, props.data)}>edit</button>
+            <button className='bntn btn-danger radius-1 p-2 m-1 btn-sm' onClick={(event) => props.action.onClick(event, props.data)}>edit</button> */}
             </>
             ),
 

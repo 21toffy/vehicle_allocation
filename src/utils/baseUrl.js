@@ -1,3 +1,4 @@
-export  const baseURL = "https://https://vehicle-allocation.herokuapp.com/api/v1/bus";
+// export  const baseURL = "https://vehicle-allocation.herokuapp.com/api/v1/bus";
+export  const baseURL = "http://127.0.0.1:8000/api/v1/bus";
 
 
