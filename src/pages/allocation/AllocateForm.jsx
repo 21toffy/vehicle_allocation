@@ -160,7 +160,7 @@ const [response, setResponse] = useState({})
                     setloading(false)
                     console.log(result.data)
                     setSuitable(result.data)
-                    setSucces('Bus Status Edited Successfully')
+                    setSucces('Sorry No suitable vehicle for journey available at the moment ')
                     seterror(null)
                    
                     setTimeout(() => {
